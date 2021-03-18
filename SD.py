@@ -17,6 +17,7 @@ except Exception:
     pass
 # print(list(country))
 g = Geod(ellps='WGS84')
+cumulative_len = []
 for i in country_list:
     for j in country_list:
         if i != j:
@@ -35,13 +36,15 @@ for i in country_list:
                                                segment.coords[1][1])
                     cumulative_length += distance
                 print(cumulative_length)
+                cumulative_len.append(cumulative_length)
                 print(i)
                 print(j)
             except TypeError:
                 pass
 
-print(type(cumulative_length))
+print(type(cumulative_len))
 # cumulative_length_list = []
 
-cumulative_length_list = [cumulative_length]
-final_list=cumulative_length_list.sort_values(by )
+cumulative_len.sort()
+
+print(cumulative_len[0])
